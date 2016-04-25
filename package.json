@@ -31,6 +31,7 @@
     "npm": ">=1.4"
   },
   "scripts": {
+    "postinstall": "touch .env",
     "start": "node keystone.js"
   },
   "main": "keystone.js"
