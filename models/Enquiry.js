@@ -16,9 +16,9 @@ Enquiry.add({
 	email: { type: Types.Email, required: true },
 	phone: { type: String },
 	enquiryType: { type: Types.Select, options: [
-		{ value: 'message', label: 'Just leaving a message' },
-		{ value: 'question', label: 'I\'ve got a question' },
-		{ value: 'other', label: 'Something else...' }
+		{ value: 'message', label: 'Ich möchte eine Nachricht hinterlassen.' },
+		{ value: 'question', label: 'Ich habe eine Frage.' },
+		{ value: 'other', label: 'Etwas anderes...' }
 	] },
 	message: { type: Types.Markdown, required: true },
 	createdAt: { type: Date, default: Date.now }
