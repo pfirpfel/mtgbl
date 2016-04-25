@@ -12,7 +12,7 @@ block content
 					h1= data.post.title
 					h5 Ver&ouml;ffentlicht 
 						if data.post.publishedDate
-							| am #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
+							| am #{data.post._.publishedDate.format('DD.MM.YYYY')} 
 						if data.post.categories && data.post.categories.length
 							| in 
 							each cat, cat_i in data.post.categories

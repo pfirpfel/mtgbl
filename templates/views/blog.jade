@@ -5,7 +5,7 @@ mixin post(post)
 		h2: a(href='/blog/post/' + post.slug)= post.title
 		p.italic Ver&ouml;ffentlicht 
 			if post.publishedDate
-				| am #{post._.publishedDate.format('MMMM Do, YYYY')} 
+				| am #{post._.publishedDate.format('DD.MM.YYYY')} 
 			if post.categories && post.categories.length
 				| in 
 				each cat, i in post.categories
