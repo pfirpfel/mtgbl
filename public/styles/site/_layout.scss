@@ -1,0 +1,31 @@
+#header {
+	margin-top: 30px;
+}
+
+#footer {
+	margin-top: 30px;
+	border-top: 1px solid #eeeeee;
+	padding-top: 30px;
+	color: #777777;
+}
+
+.gallery-image img{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.navbar {
+	font-family: $font-family-serif;
+}
+
+.navbar-brand {
+	background-image: url("/images/bear-white-48x48.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 64px;
+}
+
+.italic {
+	font-style: italic;
+}

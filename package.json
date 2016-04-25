@@ -1,35 +1,37 @@
 {
-  "name": "OpenShift-Sample-App",
-  "version": "1.0.0",
-  "description": "OpenShift Sample Application",
-  "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
-  ],
-  "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url": "http://www.openshift.com/"
-  },
-  "homepage": "http://www.openshift.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/openshift/origin-server"
-  },
-
-  "engines": {
-    "node": ">= 0.6.0",
-    "npm": ">= 1.0.0"
-  },
-
-  "dependencies": {
-    "express": "~3.4.4"
-  },
-  "devDependencies": {},
-  "bundleDependencies": [],
-
+  "name": "mtg-bl",
+  "version": "0.0.1",
+  "author": "Michael Kuenzli <michaelkuenzli@gmail.com>",
   "private": true,
-  "main": "server.js"
+  "dependencies": {
+    "keystone": "^0.3.16",
+    "async": "^1.5.0",
+    "underscore": "^1.8.3",
+    "node-sass": "^3.3.2",
+    "node-sass-middleware": "^0.9.7", 
+    "dotenv": "^1.1.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-express-server": "^0.4.17",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-jshint": "^0.7.1",
+    "jshint-stylish": "^2.0.1",
+    "load-grunt-tasks": "^0.4.0",
+    "load-grunt-configs": "^0.4.1",
+    "grunt-node-inspector": "^0.4.1",
+    "time-grunt": "^0.3.1",
+    "grunt-concurrent": "^0.5.0",
+    "grunt-nodemon": "^0.2.1", 
+    "grunt-sass": "^1.0.0", 
+    "open": "0.0.5"
+  },
+  "engines": {
+    "node": ">=0.10",
+    "npm": ">=1.4"
+  },
+  "scripts": {
+    "start": "node keystone.js"
+  },
+  "main": "keystone.js"
 }

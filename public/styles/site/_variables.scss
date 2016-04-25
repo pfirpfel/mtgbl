@@ -1,0 +1,14 @@
+// Override Bootstrap variables
+
+
+// MTG font
+@font-face {
+	font-family: "Beleren";
+	src: "/fonts/beleren-bold-webfont.ttf";
+	font-style: "normal";
+	font-weight: 700;
+}
+
+
+$font-family-serif:       "Beleren", Georgia, "Times New Roman", Times, serif !default;
+$headings-font-family:    $font-family-serif !default;
