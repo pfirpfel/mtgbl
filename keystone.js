@@ -11,8 +11,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'mtg-bl',
-	'brand': 'mtg-bl',
+	'name': 'MTG Baselland',
+	'brand': 'MTG Baselland',
 
 	'host ': process.env.NODE_IP || process.env.IP || '127.0.0.1',
 	'port': process.env.NODE_PORT || process.env.PORT || 3000,
