@@ -1,20 +1,15 @@
 // Bootstrap
 // =========
 
-// custom boostrap theme
 @import "cyborg/variables";
-@import "cyborg/bootstrap";
-@import "cyborg/bootswatch";
 
-// The easiest way to customise Bootstrap variables while
-// being able to easily override the source files with new
-// versions is to override the ones you want in another file.
-//
-// You can also add your own custom variables to this file for
-// use in your site stylesheets.
-
+// overrides
 @import "site/variables";
 
+
+@import "bootstrap/bootstrap";
+
+@import "cyborg/bootswatch";
 
 // Site Styles
 // ===========

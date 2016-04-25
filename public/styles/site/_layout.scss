@@ -10,7 +10,18 @@
 }
 
 .gallery-image img{
-    display: block;
-    max-width: 100%;
-    height: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.navbar {
+	font-family: $font-family-serif;
+}
+
+.navbar-brand {
+	background-image: url("/images/bear-white-48x48.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 64px;
 }
