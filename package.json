@@ -1,6 +1,7 @@
 {
   "name": "mtg-bl",
-  "version": "0.0.0",
+  "version": "0.0.1",,
+  "author": "Michael Kuenzli <michaelkuenzli@gmail.com>",
   "private": true,
   "dependencies": {
     "keystone": "^0.3.16",
@@ -30,7 +31,7 @@
     "npm": ">=1.3.14"
   },
   "scripts": {
-    "start": "node keystone.js"
+    "start": "node --use_strict openshift/start.js"
   },
-  "main": "keystone.js"
+  "main": "openshift/start.js"
 }

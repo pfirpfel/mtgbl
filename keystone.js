@@ -13,13 +13,18 @@ keystone.init({
 
 	'name': 'mtg-bl',
 	'brand': 'mtg-bl',
-	
+
+	'host ': process.env.NODE_IP || process.env.IP || '127.0.0.1',
+	'port': process.env.NODE_PORT || process.env.PORT || 3000,
+
+	'mongo': process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URI || "mongodb://localhost/mtgbl",
+
 	'sass': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
-	
+
 	'auto update': true,
 	'session': true,
 	'auth': true,

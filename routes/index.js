@@ -42,7 +42,13 @@ exports = module.exports = function(app) {
 	app.get('/gallery', routes.views.gallery);
 	app.get('/aboutus', routes.views.aboutus);
 	app.all('/contact', routes.views.contact);
-	
+
+	// required for OpenShift health monitoring
+	app.get('/health', function(req, res){
+		res.writeHead(200);
+		res.end();
+	});
+
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 	
