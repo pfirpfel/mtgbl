@@ -1,6 +1,6 @@
 {
   "name": "mtg-bl",
-  "version": "0.0.1",,
+  "version": "0.0.1",
   "author": "Michael Kuenzli <michaelkuenzli@gmail.com>",
   "private": true,
   "dependencies": {
