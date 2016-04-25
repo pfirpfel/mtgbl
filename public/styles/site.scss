@@ -1,9 +1,10 @@
 // Bootstrap
 // =========
 
-// Bootstrap can be removed entirely by deleting this line.
-
-@import "bootstrap/bootstrap";
+// custom boostrap theme
+@import "cyborg/variables";
+@import "cyborg/bootstrap";
+@import "cyborg/bootswatch";
 
 // The easiest way to customise Bootstrap variables while
 // being able to easily override the source files with new

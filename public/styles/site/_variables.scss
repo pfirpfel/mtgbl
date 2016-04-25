@@ -1,3 +1,11 @@
 // Override Bootstrap variables in this file, e.g.
-
 $font-size-base: 14px;
+
+@font-face {
+	font-family: "Beleren";
+	src: "/fonts/beleren-bold-webfont.ttf";
+	font-style: "normal";
+	font-weight: 700;
+}
+
+$font-family-serif: Beleren, Georgia, "Times New Roman", Times, serif !default;
