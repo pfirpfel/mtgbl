@@ -23,7 +23,10 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+
+	'wysiwyg images': true,
+	'wysiwyg cloudinary images': true
 
 });
 
