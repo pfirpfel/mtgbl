@@ -19,6 +19,9 @@ keystone.init({
 
 	'mongo': process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URI || "mongodb://localhost/mtgbl",
 
+	'cloudinary config': process.env.CLOUDINARY_URL,
+	'cloudinary secure': true,
+
 	'sass': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
