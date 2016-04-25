@@ -33,16 +33,16 @@ block content
 				h3.text-muted Ung&uuml;ltige Kategorie
 			else
 				if data.posts.results.length
-					//if data.posts.totalPages > 1
-					//	h4.text-weight-normal Zeige
-					//		strong #{data.posts.first}
-					//		|  bis
-					//		strong #{data.posts.last}
-					//		|  von
-					//		strong #{data.posts.total}
-					//		|  Beitr&auml;gen.
-					//else
-					//	h4.text-weight-normal Zeige #{utils.plural(data.posts.results.length, '* post')}.
+					//-if data.posts.totalPages > 1
+					//-	h4.text-weight-normal Zeige
+					//-		strong #{data.posts.first}
+					//-		|  bis
+					//-		strong #{data.posts.last}
+					//-		|  von
+					//-		strong #{data.posts.total}
+					//-		|  Beitr&auml;gen.
+					//-else
+					//-	h4.text-weight-normal Zeige #{utils.plural(data.posts.results.length, '* post')}.
 					.blog
 						each post in data.posts.results
 							+post(post)
