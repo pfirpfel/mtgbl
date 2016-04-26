@@ -57,7 +57,13 @@ html
 						ul.nav.navbar-nav.navbar-right
 							if user
 								if user.canAccessKeystone
-									li: a(href='/keystone') Admin
+									li
+										if pendingEnquiries > 0
+											a(href='/keystone/enquiries', title=(pendingEnquiries + ' offene Anfragen'))
+												| Admin 
+												span.badge=pendingEnquiries
+										else
+											a(href='/keystone', title='Admin-Interface') Admin
 								li: a(href='/keystone/signout') Logout
 							else
 								li: a(href='/keystone/signin') Login

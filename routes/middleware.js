@@ -10,6 +10,8 @@
 
 var _ = require('underscore');
 
+var keystone = require('keystone');
+
 
 /**
 	Initialises the standard view locals
@@ -31,8 +33,15 @@ exports.initLocals = function(req, res, next) {
 	
 	locals.user = req.user;
 	
-	next();
-	
+	if(req.user.canAccessKeystone){
+		keystone.list('Enquiry').model.count().exec(function(err, c) {
+			locals.pendingEnquiries = c;
+			next();
+		});
+	}
+	else {
+		next();
+	}
 };
 
 
