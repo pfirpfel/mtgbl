@@ -8,13 +8,15 @@ block js
 
 block intro
 	.container
-		h1 Gallery
+		if locals.filters
+			p: a(href='/gallery') &larr; zur&uuml;ck
 
 	block content
 	.container
 		if galleries.length
 			each gallery in galleries
-				h2= gallery.name
+				h2
+					a(href='/gallery/' + gallery.name)= gallery.name
 					if gallery.publishedDate
 						.pull-right.text-muted= gallery._.publishedDate.format('DD.MM.YYYY')
 				
