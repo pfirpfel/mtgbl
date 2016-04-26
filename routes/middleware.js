@@ -33,7 +33,7 @@ exports.initLocals = function(req, res, next) {
 	
 	locals.user = req.user;
 	
-	if(req.user.canAccessKeystone){
+	if(req.user && req.user.canAccessKeystone){
 		keystone.list('Enquiry').model.count().exec(function(err, c) {
 			locals.pendingEnquiries = c;
 			next();
