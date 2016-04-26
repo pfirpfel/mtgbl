@@ -1,0 +1,22 @@
+{
+  "name": "mtg-bl",
+  "description": "",
+  "main": "keystone.js",
+  "authors": [
+    "Michael Kuenzli <michaelkuenzli@gmail.com>"
+  ],
+  "license": "none",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/deps",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lightbox2": "^2.8.2"
+  }
+}

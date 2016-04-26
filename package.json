@@ -4,12 +4,13 @@
   "author": "Michael Kuenzli <michaelkuenzli@gmail.com>",
   "private": true,
   "dependencies": {
-    "keystone": "^0.3.16",
     "async": "^1.5.0",
-    "underscore": "^1.8.3",
+    "bower": "^1.7.9",
+    "dotenv": "^1.1.0",
+    "keystone": "^0.3.16",
     "node-sass": "^3.3.2",
-    "node-sass-middleware": "^0.9.7", 
-    "dotenv": "^1.1.0"
+    "node-sass-middleware": "^0.9.7",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "grunt": "^0.4.4",
@@ -22,8 +23,8 @@
     "grunt-node-inspector": "^0.4.1",
     "time-grunt": "^0.3.1",
     "grunt-concurrent": "^0.5.0",
-    "grunt-nodemon": "^0.2.1", 
-    "grunt-sass": "^1.0.0", 
+    "grunt-nodemon": "^0.2.1",
+    "grunt-sass": "^1.0.0",
     "open": "0.0.5"
   },
   "engines": {
@@ -31,7 +32,7 @@
     "npm": ">=1.4"
   },
   "scripts": {
-    "postinstall": "touch .env",
+    "postinstall": "touch .env && bower install",
     "start": "node keystone.js"
   },
   "main": "keystone.js"
