@@ -32,7 +32,7 @@
     "npm": ">=1.4"
   },
   "scripts": {
-    "postinstall": "touch .env && node node_modules/bower/bin/bower install",
+    "postinstall": "sh postinstall.sh",
     "start": "node keystone.js"
   },
   "main": "keystone.js"
