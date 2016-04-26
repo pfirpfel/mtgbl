@@ -24,12 +24,12 @@ block intro
 					if gallery.heroImage.exists
 						.col-sm-4.col-md-4.gallery-image
 							a(href=gallery._.heroImage.src(), data-lightbox=gallery.name)
-								img(src=gallery._.heroImage.limit(680,680)).img-rounded
+								img(src=gallery._.heroImage.limit(500,500)).img-rounded
 						.col-sm-8.col-md-8: .row
 							each image in gallery.images
 								.col-xs-4.col-sm-4.col-md-3.gallery-image
 									a(href=image.src(), data-lightbox=gallery.name)
-										img(src=image.limit(300,300)).img-rounded
+										img(src=image.limit(180,180)).img-rounded
 					else
 						each image in gallery.images
 							.col-xs-6.col-sm-4.col-md-3.gallery-image
