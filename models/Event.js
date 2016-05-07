@@ -22,8 +22,9 @@ var locationDefault = {
 Event.add({
 	name: { type: String, required: true },
 	description: { type: Types.Html, wysiwyg: true },
+	format: { type: Types.Select, options: 'Draft, Sealed, Standard, Modern, Legacy, Special', default: 'Draft' },
 	date: { type: Types.Datetime, format: 'DD-MM-YYYY HH:mm', default: Date.now, required: true },
-	location: { type: Types.Location, defaults: locationDefault, required: true }
+	location: { type: Types.Location, defaults: locationDefault, default: locationDefault, required: true }
 });
 
 Event.defaultColumns = 'name, date, location';

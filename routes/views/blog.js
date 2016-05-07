@@ -13,7 +13,8 @@ exports = module.exports = function(req, res) {
 	};
 	locals.data = {
 		posts: [],
-		categories: []
+		categories: [],
+		events: []
 	};
 	
 	// Load all categories
@@ -82,6 +83,23 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
+	// Load upcoming events
+	view.on('init', function(next) {
+
+		var now = new Date();
+
+		var q = keystone.list('Event').model.find()//({ date: {$gt: now }})
+			.where('date').gt(now)
+			.sort('date')
+			.limit(5);
+
+		q.exec(function(err, results) {
+			locals.data.events = results;
+			next(err);
+		});
+
+	});
+
 	// Render the view
 	view.render('blog');
 	
