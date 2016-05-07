@@ -74,8 +74,8 @@ block content
 					ul.list-group
 						each event in data.events
 							a(href='/events/show/' + event.key).list-group-item
-								- var eventLabel = event._.date.format('DD.MM.') + ' ' + (event.name.length > 18 ? event.name.substr(0,15) + '...' : event.name)
-								| #[span(class="label label-warning") #{event.format}] #{eventLabel}
+								- var trimmedEventName = event.name.length > 20 ? event.name.substr(0, 17) + '...' : event.name
+								| #{event._.date.format('DD.MM.')} #[span(class="label label-warning") #{event.format}] #{trimmedEventName}
 
 			if data.categories.length
 				div.panel.panel-default
