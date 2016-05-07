@@ -11,6 +11,8 @@ block content
 				header
 					h1= data.event.name
 					h2 Was?
+					p
+						strong Format: #{data.event.format}
 					p= data.event.description
 					h2 Wann?
 					p= data.event._.date.format('DD.MM.YYYY - HH:mm')
