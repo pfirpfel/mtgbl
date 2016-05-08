@@ -27,6 +27,7 @@ exports.initLocals = function(req, res, next) {
 	
 	locals.navLinks = [
 		{ label: '\xDCber Uns',		key: 'aboutus',		href: '/aboutus' },
+		{ label: 'Events',		key: 'events',		href: '/events' },
 		{ label: 'Galerie',		key: 'gallery',		href: '/gallery' },
 		{ label: 'Kontakt',		key: 'contact',		href: '/contact' }
 	];
