@@ -11,9 +11,12 @@ var User = new keystone.List('User');
 User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
+	dci: { type: Types.Text, initial: true },
 	password: { type: Types.Password, initial: true, required: true }
 }, 'Permissions', {
-	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true }
+	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
+	isMember: { type: Boolean, label: 'Is club member', index: true, initial: true },
+	isEditor: { type: Boolean, label: 'Can edit/create content', index: true, initial: true }
 });
 
 // Provide access to Keystone
