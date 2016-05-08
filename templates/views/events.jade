@@ -2,7 +2,7 @@ extends ../layouts/default
 
 mixin event(event)
 	tr
-		td=event._.date.format('DD.MM.')
+		td=event._.date.format('DD.MM.YYYY -  HH:mm') + ' Uhr'
 		td=event.format
 		td=event.name
 		td
@@ -23,7 +23,7 @@ block content
 						th Was
 						th &nbsp;
 				tbody
-					if data.events.length
+					if data.events.results.length
 						each event in data.events.results
 							+event(event)
 			if data.events.totalPages > 1
