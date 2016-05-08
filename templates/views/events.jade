@@ -1,0 +1,41 @@
+extends ../layouts/default
+
+mixin event(event)
+	tr
+		td=event._.date.format('DD.MM.')
+		td=event.format
+		td=event.name
+		td
+			a(href='/events/show/' + event.key) Details
+
+block intro
+	.container
+		h1 Kommende Events
+
+block content
+	.container: .row
+		.col-sm-8.col-md-9
+			table.table.table-striped.table-hover
+				thead
+					tr
+						th Wann
+						th Format
+						th Was
+						th &nbsp;
+				tbody
+					if data.events.length
+						each event in data.events.results
+							+event(event)
+			if data.events.totalPages > 1
+				ul.pagination
+					if data.events.previous
+						li: a(href='?page=' + data.events.previous): span.glyphicon.glyphicon-chevron-left
+					else
+						li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+					each p, i in data.events.pages
+						li(class=data.events.currentPage == p ? 'active' : null)
+							a(href='?page=' + (p == '...' ? (i ? data.events.totalPages : 1) : p ))= p
+					if data.events.next
+						li: a(href='?page=' + data.events.next): span.glyphicon.glyphicon-chevron-right
+					else
+						li.disabled: a(href='?page=' + data.events.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
