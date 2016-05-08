@@ -12,10 +12,6 @@ exports = module.exports = function(req, res) {
 		events: []
 	};
 
-	// TODO: filter formats?
-	//locals.filters = {};
-	//if(req.query.format) locals.filters.format = req.query.format;
-
 	// Load upcoming events
 	view.on('init', function(next) {
 

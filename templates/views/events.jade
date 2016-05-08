@@ -28,6 +28,8 @@ block content
 					if data.events.results.length
 						each event in data.events.results
 							+event(event)
+				if data.events.results.length == 0
+					p Zurzeit finden keine Events statt.
 			if data.events.totalPages > 1
 				ul.pagination
 					if data.events.previous
