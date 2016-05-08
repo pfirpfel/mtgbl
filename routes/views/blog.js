@@ -88,7 +88,7 @@ exports = module.exports = function(req, res) {
 
 		var now = new Date();
 
-		var q = keystone.list('Event').model.find()//({ date: {$gt: now }})
+		var q = keystone.list('Event').model.find()
 			.where('date').gt(now)
 			.sort('date')
 			.limit(5);
