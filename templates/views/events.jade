@@ -2,7 +2,8 @@ extends ../layouts/default
 
 mixin event(event)
 	tr
-		td=event._.date.format('DD.MM.YYYY -  HH:mm') + ' Uhr'
+		td=event._.date.format('DD.MM.YYYY')
+		td=event._.date.format('HH:mm')
 		td=event.format
 		td=event.name
 		td
@@ -18,7 +19,8 @@ block content
 			table.table.table-striped.table-hover
 				thead
 					tr
-						th Wann
+						th Datum
+						th Beginn
 						th Format
 						th Was
 						th &nbsp;
