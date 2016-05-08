@@ -17,7 +17,7 @@ keystone.init({
 	'host': process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '127.0.0.1',
 	'port': process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000,
 
-	'mongo': process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URI || "mongodb://localhost/mtgbl",
+	'mongo': process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URI || "mongodb://127.0.0.1/mtgbl",
 
 	'cloudinary config': process.env.CLOUDINARY_URL,
 	'cloudinary secure': true,
