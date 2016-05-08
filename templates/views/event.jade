@@ -1,0 +1,20 @@
+extends ../layouts/default
+
+block content
+	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+		article
+			p: a(href='/') &larr; zur&uuml;ck
+			hr
+			if !data.event
+				h2 Ung&uuml;ltiger Event.
+			else
+				header
+					h1= data.event.name
+					h2 Was?
+					p
+						strong Format: #{data.event.format}
+					p= data.event.description
+					h2 Wann?
+					p= data.event._.date.format('DD.MM.YYYY - HH:mm')
+					h2 Wo?
+					p= data.event.location.name

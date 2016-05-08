@@ -66,9 +66,22 @@ block content
 					else
 						h3.text-muted Es gibt noch keine Beitr&auml;ge.
 		
-		if data.categories.length
-			.col-sm-4.col-md-3
-				.list-group(style='margin-top: 70px;')
-					a(href='/blog', class=!data.category ? 'active' : false).list-group-item Alle Kategorien
-					each cat in data.categories
-						a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
+		.col-sm-4.col-md-3
+			if data.events.length
+				div.panel.panel-default
+					div.panel-heading
+						h3.panel-title N&auml;chste Events
+					ul.list-group
+						each event in data.events
+							a(href='/events/show/' + event.key).list-group-item
+								- var trimmedEventName = event.name.length > 20 ? event.name.substr(0, 17) + '...' : event.name
+								| #{event._.date.format('DD.MM.')} #[span(class="label label-warning") #{event.format}] #{trimmedEventName}
+
+			if data.categories.length
+				div.panel.panel-default
+					div.panel-heading
+						h3.panel-title Kategorien
+					ul.list-group
+						a(href='/blog', class=!data.category ? 'active' : false).list-group-item Alle Kategorien
+						each cat in data.categories
+							a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
