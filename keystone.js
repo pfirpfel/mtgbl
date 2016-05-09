@@ -34,7 +34,9 @@ keystone.init({
 	'user model': 'User',
 
 	'wysiwyg images': true,
-	'wysiwyg cloudinary images': true
+	'wysiwyg cloudinary images': true,
+	'wysiwyg additional plugins': 'table',
+	'wysiwyg additional buttons': 'styleselect | table'
 
 });
 
