@@ -13,7 +13,7 @@ block content
 					h2 Was?
 					p
 						strong Format: #{data.event.format}
-					p= data.event.description
+					p!= data.event.description
 					h2 Wann?
 					p= data.event._.date.format('DD.MM.YYYY - HH:mm')
 					h2 Wo?
