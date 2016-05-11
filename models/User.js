@@ -2,6 +2,7 @@ var async = require('async');
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 var crypto = require('crypto');
+var mailgun = require('../lib/mailgun');
 
 /**
  * User Model
@@ -15,12 +16,37 @@ User.add({
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	dci: { type: Types.Text, initial: true },
 	password: { type: Types.Password, initial: true, required: true },
+	resetPasswordKey: { type: String, hidden: true },
 	gravatar: { type: String, noedit: true }
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 	isMember: { type: Boolean, label: 'Is club member', index: true, initial: true },
-	isEditor: { type: Boolean, label: 'Can edit/create content', index: true, initial: true }
+	isEditor: { type: Boolean, label: 'Can edit/create content', index: true, initial: true },
+	isVerified: { type: Boolean, label: 'Has a verified email address' } // TODO
 });
+
+
+/**
+ * Methods
+ */
+
+User.schema.methods.resetPassword = function(callback) {
+	var user = this;
+	user.resetPasswordKey = keystone.utils.randomString([16,24]);
+	user.save(function(err) {
+		if (err) return callback(err);
+
+		mailgun.sendMail({
+		  from: process.env.MAILGUN_MAIL || 'MTG Baselland <noreply@mtgbaselland.ch>',
+		  to: user.email,
+		  subject: 'Zur\xFCcksetzen deines Passworts bei mtgbaselland.ch',
+		  text: 'Hallo ' + user.name + '!\n\n'
+			+ 'Um dein Passwort zur\xFCckzusetzen, folge bitte diesem Link: '
+			+ 'http://mtgbaselland.ch/reset-password/' + user.resetPasswordKey + '\n\n'
+			+ 'Hast du dein Passwort nicht vergessen, ignoriere diese E-Mail.\n'
+		}, callback);
+	});
+}
 
 
 /**
