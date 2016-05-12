@@ -28,7 +28,7 @@ exports = module.exports = function(req, res) {
 
 			function(cb) {
 				if (req.body.dci && !/\d+/.test(req.body.dci)) {
-					req.flash('error', 'Ung&uuml;ltige DCI-Nummer.');
+					req.flash('error', 'Ung\xFCltige DCI-Nummer.');
 					return cb(true);
 				}
 				return cb();

@@ -22,10 +22,10 @@ exports = module.exports = function(req, res) {
 				if (err) {
 					console.error('===== ERROR sending reset password email =====');
 					console.error(err);
-					req.flash('error', 'Fehler beim Versenden der Zur&uuml;cksetz-Email. Bitte mache uns auf den Fehler <a href="https://github.com/pfirpfel/mtgbl/issues" class="alert-link">aufmerksam</a>!');
+					req.flash('error', 'Fehler beim Versenden der Zur\xFCcksetz-Email. Bitte mache uns auf den Fehler <a href="https://github.com/pfirpfel/mtgbl/issues" class="alert-link">aufmerksam</a>!');
 					next();
 				} else {
-					req.flash('success', 'Zur&uuml;cksetz-Email verschickt!');
+					req.flash('success', 'Zur\xFCcksetz-Email verschickt!');
 					res.redirect('/signin');
 				}
 			});
