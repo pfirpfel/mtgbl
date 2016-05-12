@@ -2,5 +2,21 @@ extends ../../layouts/default
 
 block content
 	.container
-		h1 Error (500)
-		p.lead Sorry, the site has encountered an error.
+		h1!=errorTitle || 'Serverseitiger Fehler (500)'
+		p Sollte dieser Fehler h&auml;ufiger auftreten, 
+			a(href='https://github.com/pfirpfel/mtgbl/issues', target='_blank') lass es uns wissen.
+
+		h3 Fehler-Nachricht
+		if 'object' == typeof errorMsg
+			div(style='margin: 30px 0;').debug!= htmlStringify(errorMsg)
+		else
+			p!= utils.textToHTML(errorMsg) || 'Es gab einen serverseitigen Fehler.<br><br>Probiere es sp\xE4ter noch einmal.'
+
+		if err
+			hr.mv-2
+			h3 Fehler-Details
+			pre.mb-2: code
+				if 'string' == typeof err
+					!= utils.textToHTML(err)
+				else
+					!= htmlStringify(err)
