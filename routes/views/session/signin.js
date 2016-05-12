@@ -29,7 +29,7 @@ exports = module.exports = function(req, res) {
 		};
 
 		var onFail = function() {
-			req.flash('error', 'E-Mail-Adresse oder Passwort sind ung&uuml;ltig. Bitte nochmal versuchen.');
+			req.flash('error', 'E-Mail-Adresse oder Passwort sind ung\xFCltig. Bitte nochmal versuchen.');
 			return next();
 		};
 
