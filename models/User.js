@@ -40,10 +40,11 @@ User.schema.methods.resetPassword = function(callback) {
 			from: process.env.MAILGUN_MAIL || 'MTG Baselland <noreply@mtgbaselland.ch>',
 			to: user.email,
 			subject: 'Zur\xFCcksetzen deines Passworts bei mtgbaselland.ch',
-			text: 'Hallo ' + user.name + '!\n\n' +
+			text: 'Hallo ' + user.name.full + '!\n\n' +
 				'Um dein Passwort zur\xFCckzusetzen, folge bitte diesem Link: ' +
 				'http://mtgbaselland.ch/reset-password/' + user.resetPasswordKey + '\n\n' +
-				'Hast du dein Passwort nicht vergessen, ignoriere diese E-Mail.\n'
+				'Hast du dein Passwort nicht vergessen, ignoriere diese E-Mail.\n\n' +
+				'Gruss,\nMTG Baselland'
 		}, callback);
 	});
 };
