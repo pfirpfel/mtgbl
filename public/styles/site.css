@@ -6008,7 +6008,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .navbar-brand {
   background-image: url("/images/bear-white-48x48.png");
   background-repeat: no-repeat;
-  background-position: left center;
+  background-position: 3px 3px;
   padding-left: 64px; }
 
 .italic {
