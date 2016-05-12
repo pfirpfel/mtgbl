@@ -45,8 +45,8 @@ mixin form-join(args)
 					.form-group(class=!args.modal ? checkFormError('dci') : null)
 						label(for='dci').sr-only DCI-Nummer (optional)
 						input(type='text', name='dci', placeholder='DCI-Nummer (optional)', value=!args.modal ? form.dci : null).form-control.form-control--last
-				button(type='submit').btn.btn-block.btn-primary.btn-submit Join
+				button(type='submit').btn.btn-block.btn-primary.btn-submit Registrieren
 		
 			p.text-center.text-muted.mt-3
-				| Bereits registriert?
+				| Bereits registriert? 
 				a(href=args.modal ? js : '/signin', rel=args.modal ? 'modal-pane' : null, data-modal-pane=args.modal ? 'signin' : null) Einloggen
