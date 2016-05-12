@@ -1,5 +1,4 @@
-var keystone = require('keystone'),
-	async = require('async');
+var keystone = require('keystone');
 
 exports = module.exports = function(req, res) {
 
@@ -27,12 +26,12 @@ exports = module.exports = function(req, res) {
 			} else {
 				res.redirect('/'); // TODO: profil-page?
 			}
-		}
+		};
 
 		var onFail = function() {
 			req.flash('error', 'E-Mail-Adresse oder Passwort sind ung&uuml;ltig. Bitte nochmal versuchen.');
 			return next();
-		}
+		};
 
 		keystone.session.signin({ email: req.body.email, password: req.body.password }, req, res, onSuccess, onFail);
 
@@ -40,4 +39,4 @@ exports = module.exports = function(req, res) {
 
 	view.render('session/signin');
 
-}
+};

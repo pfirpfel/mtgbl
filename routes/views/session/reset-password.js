@@ -11,7 +11,7 @@ exports = module.exports = function(req, res) {
 		User.model.findOne().where('resetPasswordKey', req.params.key).exec(function(err, user) {
 			if (err) return next(err);
 			if (!user) {
-				req.flash('error', "Ung&uuml;ltiger Passwort-Schl&uuml;ssel!");
+				req.flash('error', 'Ung&uuml;ltiger Passwort-Schl&uuml;ssel!');
 				return res.redirect('/forgot-password');
 			}
 			locals.found = user;
@@ -21,13 +21,13 @@ exports = module.exports = function(req, res) {
 	});
 
 	view.on('post', { action: 'reset-password' }, function(next) {
-
+		/*jshint camelcase: false */
 		if (!req.body.password || !req.body.password_confirm) {
-			req.flash('error', "Bitte neues Passwort eingeben.");
+			req.flash('error', 'Bitte neues Passwort eingeben.');
 			return next();
 		}
 
-		if (req.body.password != req.body.password_confirm) {
+		if (req.body.password !== req.body.password_confirm) {
 			req.flash('error', 'Passw&ouml;rter stimmen nicht &uuml;berein!');
 			return next();
 		}
@@ -44,4 +44,4 @@ exports = module.exports = function(req, res) {
 
 	view.render('session/reset-password');
 
-}
+};

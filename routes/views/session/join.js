@@ -73,19 +73,19 @@ exports = module.exports = function(req, res) {
 				} else {
 					res.redirect('/'); // TODO: profil-page?
 				}
-			}
-				req.flash('error', 'Es gab ein Problem beim Versuch dich einzuloggen. Bitte versuche es erneut!');
+			};
+
+			var onFail = function(err) {
+				console.log('[join] - Error: ' + err);
+				req.flash('error', 'Es gab ein Problem beim Einloggen. Bitte versuche es erneut!');
 				return next();
-			}
+			};
 
 			keystone.session.signin({ email: req.body.email, password: req.body.password }, req, res, onSuccess, onFail);
 
-			var onFail = function(e) {
-
 		});
-		
 	});
 
 	view.render('session/join');
 
-}
+};

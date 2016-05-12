@@ -3,20 +3,19 @@ var keystone = require('keystone'),
 
 exports = module.exports = function(req, res) {
 
-	var view = new keystone.View(req, res),
-		locals = res.locals;
+	var view = new keystone.View(req, res);
 
 	view.on('post', { action: 'forgot-password' }, function(next) {
 		
 		if (!req.body.email) {
-			req.flash('error', "Bitte E-Mail-Adresse angeben!");
+			req.flash('error', 'Bitte E-Mail-Adresse angeben!');
 			return next();
 		}
 
 		User.model.findOne().where('email', req.body.email).exec(function(err, user) {
 			if (err) return next(err);
 			if (!user) {
-				req.flash('error', "Unbekannte E-Mail-Adresse.");
+				req.flash('error', 'Unbekannte E-Mail-Adresse.');
 				return next();
 			}
 			user.resetPassword(function(err) {
@@ -36,4 +35,4 @@ exports = module.exports = function(req, res) {
 
 	view.render('session/forgot-password');
 
-}
+};
