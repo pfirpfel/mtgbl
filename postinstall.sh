@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# reduce inode usage
+npm dedupe
+
 touch .env
 
 if env | grep -q ^OPENSHIFT_REPO_DIR=
