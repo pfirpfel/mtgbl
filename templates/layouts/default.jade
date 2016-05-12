@@ -65,8 +65,7 @@ html
 												span.badge=pendingEnquiries
 										else
 											a(href='/keystone', title='Admin-Interface') Admin
-								li: a(href='/signout')
-									span.visible-xs Sign out
+								li: a(href='/signout') Ausloggen
 							else
 								li: a(href='/signin', data-from=page.path, data-initial='signin').js-auth-trigger Einloggen
 								li: a(href='/join', data-from=page.path).js-auth-trigger Registrieren
