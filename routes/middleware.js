@@ -72,6 +72,25 @@ exports.flashMessages = function(req, res, next) {
 
 
 /**
+	Inits the error handler functions into `req`
+*/
+
+exports.initErrorHandlers = function(req, res, next) {
+	res.err = function(err, title, message) {
+		res.status(500).render('errors/500', {
+			err: err,
+			errorTitle: title,
+			errorMsg: message
+		});
+	};
+	res.notfound = function() {
+		res.status(404).render('errors/404');
+	};
+	next();
+};
+
+
+/**
 	Prevents people from accessing protected pages when they're not signed in
  */
 
