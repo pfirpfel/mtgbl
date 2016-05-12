@@ -1,0 +1,9 @@
+extends ../../layouts/session
+
+block content
+	//- .row: .col-md-6.col-md-offset-3
+	.container
+		h1 Erfolgreich ausgeloggt
+		p.lead Bis bald!
+		p: a(href='/signin').btn.btn-primary.btn-block Einloggen
+		p: a(href='/').btn.btn-default.btn-block Home
