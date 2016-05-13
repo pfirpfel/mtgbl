@@ -6,7 +6,10 @@ var Types = keystone.Field.Types;
  * ==========
  */
 
-var Page = new keystone.List('Page');
+var Page = new keystone.List('Page', {
+	map: { name: 'title' },
+	autokey: { path: 'slug', from: 'title', unique: true }
+});
 
 Page.add({
 	title: { type: String, initial: true, required: true },

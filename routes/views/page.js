@@ -18,7 +18,7 @@ exports = module.exports = function(req, res) {
 	view.on('init', function(next) {
 
 		var q = keystone.list('Page').model.findOne({
-			title: locals.filters.page
+			slug: locals.filters.page
 		});
 
 		q.exec(function(err, page) {
