@@ -26,7 +26,7 @@ exports.initLocals = function(req, res, next) {
 	var locals = res.locals;
 	
 	locals.navLinks = [
-		{ label: '\xDCber Uns',		key: 'aboutus',		href: '/aboutus' },
+		{ label: '\xDCber Uns',		key: 'aboutus',		href: '/page/uber-uns' },
 		{ label: 'Events',		key: 'events',		href: '/events' },
 		{ label: 'Galerie',		key: 'gallery',		href: '/gallery' },
 		{ label: 'Kontakt',		key: 'contact',		href: '/contact' }
