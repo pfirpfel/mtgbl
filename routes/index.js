@@ -63,7 +63,6 @@ exports = module.exports = function(app) {
 	//app.get('/events/past', routes.views.pastEvents);
 	app.get('/events/show/:event', routes.views.event);
 	app.get('/gallery/:singleGallery?', routes.views.gallery);
-	app.get('/aboutus', routes.views.aboutus);
 	app.all('/contact', routes.views.contact);
 
 	// Session
