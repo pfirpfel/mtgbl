@@ -17,4 +17,17 @@ block content
 					h2 Wann?
 					p= data.event._.date.format('DD.MM.YYYY - HH:mm')
 					h2 Wo?
-					p= data.event.location.name
+					if data.event.location.name
+						p= data.event.location.name
+					if data.event.location.street1
+						p= data.event.location.street1
+					if data.event.location.street2
+						p= data.event.location.street2
+					- var formattedTown = []
+					if data.event.location.postcode
+						- formattedTown.push(data.event.location.postcode)
+					if data.event.location.suburb
+						- formattedTown.push(data.event.location.suburb)
+					if data.event.location.state
+						- formattedTown.push(data.event.location.state)
+					p= formattedTown.join(' ')
