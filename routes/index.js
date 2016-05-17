@@ -71,6 +71,7 @@ exports = module.exports = function(app) {
 	app.get('/signout', routes.views.session.signout);
 	app.all('/forgot-password', routes.views.session['forgot-password']);
 	app.all('/reset-password/:key', routes.views.session['reset-password']);
+	app.get('/verify-mail/:key', routes.views.session['verify-mail']);
 
 	// required for OpenShift health monitoring
 	app.get('/health', function(req, res){

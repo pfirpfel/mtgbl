@@ -1,0 +1,22 @@
+extends ../layouts/defaultMail
+
+block content
+	p Hallo #{user}!
+	p &nbsp;
+	p Danke f&uuml;r deine Registration bei MTG Baselland!
+	p Um deinen Benutzerkonto zu aktivieren, musst du deine E-Mail-Adresse best&auml;tigen. Klicke hierf&uuml;r auf folgenden Link:
+	p
+		a(href=link)=link
+	p Liebe Gr&uuml;sse
+	p MTG Baselland
+
+	script(type='application/ld+json').
+		{
+		  "@context": "http://schema.org",
+		  "@type": "EmailMessage",
+		  "action": {
+			"@type": "ViewAction",
+			"url": "#{link}",
+			"name": "Registration bei MTG Baselland abschliessen"
+		  }
+		}

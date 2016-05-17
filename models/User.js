@@ -18,6 +18,7 @@ User.add({
 	dci: { type: Types.Text, initial: true },
 	password: { type: Types.Password, initial: true, required: true },
 	resetPasswordKey: { type: String, hidden: true },
+	verifyEmailKey: { type: String, hidden: true },
 	gravatar: { type: String, noedit: true }
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
@@ -81,12 +82,44 @@ User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
 User.schema.pre('save', function(next) {
 	var member = this;
 	async.parallel([
+		// create gravatar hash
 		function(done) {
 			if (!member.email) return done();
 			member.gravatar = crypto.createHash('md5').update(member.email.toLowerCase().trim()).digest('hex');
 			return done();
+		},
+
+		// create verifyEmailKey
+		function(done) {
+			if(member.verifyEmailKey) return done();
+			member.verifyEmailKey = keystone.utils.randomString([16,24]);
+			return done();
 		}
 	], next);
+});
+
+
+/**
+ * Post-save
+ */
+
+User.schema.post('save', function() {
+	var member = this;
+	// send verification e-mail
+	if(member.isVerified) return;
+	var mailLocals = {
+		user: member.name.full,
+		link: 'http://mtgbaselland.ch/verify-mail/' + member.verifyEmailKey
+	};
+	var mail = jade.compileFile('./templates/mails/verifyMail.jade');
+	mailgun.sendMail({
+		from: process.env.MAILGUN_MAIL || 'MTG Baselland <noreply@mtgbaselland.ch>',
+		to: member.email,
+		subject: 'Registration bei mtgbaselland.ch',
+		html: mail(mailLocals)
+	}, function(error){
+		if(error) console.log(error);
+	});
 });
 
 
