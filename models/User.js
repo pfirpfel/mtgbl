@@ -2,6 +2,7 @@ var async = require('async');
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 var crypto = require('crypto');
+var jade = require('jade');
 var mailgun = require('../lib/mailgun');
 
 /**
@@ -36,15 +37,16 @@ User.schema.methods.resetPassword = function(callback) {
 	user.save(function(err) {
 		if (err) return callback(err);
 
+		var mailLocals = {
+			user: user.name.full,
+			link: 'http://mtgbaselland.ch/reset-password/' + user.resetPasswordKey
+		};
+		var mail = jade.compileFile('./templates/mails/forgotPassword.jade');
 		mailgun.sendMail({
 			from: process.env.MAILGUN_MAIL || 'MTG Baselland <noreply@mtgbaselland.ch>',
 			to: user.email,
 			subject: 'Zur\xFCcksetzen deines Passworts bei mtgbaselland.ch',
-			text: 'Hallo ' + user.name.full + '!\n\n' +
-				'Um dein Passwort zur\xFCckzusetzen, folge bitte diesem Link: ' +
-				'http://mtgbaselland.ch/reset-password/' + user.resetPasswordKey + '\n\n' +
-				'Hast du dein Passwort nicht vergessen, ignoriere diese E-Mail.\n\n' +
-				'Gruss,\nMTG Baselland'
+			html: mail(mailLocals)
 		}, callback);
 	});
 };
